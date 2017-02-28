@@ -2,6 +2,10 @@ System Architecture
 ==========
 from dirc 2017/2/20
 
+#####管理员密码账号:
+***账号:*** admin
+***密码:*** samesame2016
+
 #####系统简介:
 ***本微信管理系统采用symfony2.8，引入第三方库如下***
 
@@ -26,7 +30,7 @@ from dirc 2017/2/20
 已经做了依赖注入，且配置完成：调用方式:$this->container->get('my.Cache.Redis')
 
 
-#####数据库表解析： 
+#####数据库表解析：
 ***数据如导入文件位置：***app/DB/database.sql
 
 ***表解析***
@@ -114,26 +118,26 @@ from dirc 2017/2/20
 
 #####相关依赖注入parameters解释
 	session_login //登入session名称
-	
+
 	【bundle name】_permission
 	    user_selfcontrol: user self control
       	user_usercontrol: Administrators
 		权限名称: 权限简介
-		
+
 	【bundle name】_pages //页面rout 授权详情
 		user_api_page_creatadmin:
 			goto: user_out_notpassede //未拿到访问权限时显示页面rout name
         	permission: user_usercontrol //访问权限名称
         	login: user_page_login  //未登陆跳转rout name
-        
+
 	【bundle name】_papis //页面rout 授权详情
 		user_api_papi_adminchangepw:
 			goto: user_out_notpassede //未拿到访问权限时显示页面rout name
         	permission: user_usercontrol //访问权限名称
-	 
+
 	 wechat_jscode_allowapi //jssdk授权api名称数组
 
-	 
+
 #####被动消息回复结构
 ***主体类***   \Wechat\ApiBundle\Modals\classes\WechatResponse
 
@@ -150,7 +154,7 @@ from dirc 2017/2/20
 	|   |-- locationRequest.php
 	|   |-- RequestFormat.php //消息接收类规范
 	|   `-- textRequest.php
-	
+
 ***消息接收类相关规范***
 
 ****需要继承类 RequestFormat.php****
@@ -167,7 +171,7 @@ from dirc 2017/2/20
 			some logic
   		}
   	}
-  	
+
 ##### rout 过滤规则
 
 rout 访问控制是通过rout name进行控制
@@ -180,7 +184,7 @@ rout 访问控制是通过rout name进行控制
         goto: user_page_nopermission
         permission: user_selfcontrol
         login: user_page_login
-        
+
     user_page_preference: //rout配置
     	path:     /user/preference
     	defaults: { _controller: UserBundle:Page:preference }
@@ -192,7 +196,7 @@ rout 访问控制是通过rout name进行控制
 	user_api_papi_adminchangepw://权限配置
         goto: user_out_notpassede
         permission: user_usercontrol
-        
+
     user_api_papi_adminchangepw: //rout配置
     	path:     /user/adminchangepw
     	defaults: { _controller: UserBundle:Api:adminchangepw }
