@@ -1,0 +1,26 @@
+parameters:
+
+  # wx_cardids
+  # like
+  # UUID:
+  #   domain: domain.com
+  #   cards:
+  #     -
+  #       card_id: CARD_ID
+  #       code: CODE
+  #       open_id: OPEN_ID
+  #       outer_id: OUTER_ID
+  #       balance: BALANCE
+  wx_cardids:
+    29bd05ab-9390-4f55-b2d4-53f3ac637795:
+      domain: 'dirc.samesamechina.com'
+      cards:
+        -
+          card_id: 'p-jLIwVLOyheVf131TxZ3_IGg3Qo'
+
+  wx_cardchoose:
+    29bd05ab-9390-4f55-b2d4-53f3ac637795:
+      domain: 'dirc.samesamechina.com'
+      info:
+        shop_id: "345345"
+        card_type: GROUPON

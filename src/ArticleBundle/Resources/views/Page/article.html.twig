@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="Photography, Photo Images, Responsive, Business, Corporate, Gallery, Notebook" />
+<meta name="description" content="PhotoBax Responsive Photography Business Template" />
+<head>
+  <title>{{pagetitle}}</title>
+  <link type="text/css" rel="stylesheet" href="/source/ckeditor/contentsmy.css">
+  <style type="text/css">
+iframe{
+    width: 100%;
+}
+.droptag1{
+  background:url(/source/change/img/droptag1.png) !important;
+  background-repeat:no-repeat !important;
+  background-size:100% 100% !important;
+}
+.dropmenuckedit{
+  width:100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.dropmenuckedit>div:nth-child(1){
+  width:80%;
+  margin:0px auto;
+  height: 68px;
+  line-height: 68px;
+  font-size:60px;
+  padding:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  background:url(/source/change/img/droptag2.png);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.dropmenuckedit>div:nth-child(1)~div{
+  width:90%;
+  margin:0px auto;
+  display: none;
+}
+  </style>
+  <script type="text/javascript" src="/source/manage/js/jquery-1.11.0.js"></script>
+</head>
+<body class="cke_editable cke_editable_themed cke_contents_ltr cke_show_borders" style="margin:0px;padding:0px">
+  <p><img src="/source/change/img/adp1.png" style="width:80%;margin-left:10%;margin-top:100px"></p>
+  {{ content|raw }}
+<script>
+$(".dropmenuckedit>div:nth-child(1)").click(function(){
+  $(this).nextAll().toggle();
+  if($(this).is(".droptag1")){
+    $(this).removeClass("droptag1");
+  }else{
+    $(this).addClass("droptag1");
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+{% extends '::backendbase.html.twig' %}
+{% block title %}KEYWORD{% endblock %}
+{% block navkeyword %}navactive{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+
+{% endblock %}
+
+
+{% block maincontent %}
+<div class="panel panel-default" id="tagmanage">
+   <div class="panel-heading">
+         Keyword
+   </div>
+   <div class="panel-body" id="tagmanagepanel">
+     <ul class="nav nav-tabs" style="margin-top:20px" id="tagnav">
+       <li class="active"><a href="#" active="taglist" class="message">Tag List</a></li>
+       <li class=""><a href="#" active="addtagdiv" class="message">Add Tag</a></li>
+    </ul>
+<!-- taglist -->
+<div id="taglist"  class="navshow">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Tag List
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="taglisttable">
+                        <thead>
+                            <tr>
+                                <th>Tag Name</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+</div>
+<!-- taglist end-->
+<!-- tag include keyword  -->
+<div id="tagkeyslist">
+  <div class="panel panel-default">
+     <div class="panel-heading">
+           Edit Tag
+           <i class="fa fa-mail-reply pull-right"></i>
+     </div>
+     <div class="panel-body" id="tagkeyspanel">
+      <button type="button" class="btn btn-primary pull-right" id="tagchangesubmit">
+         Save
+      </button>
+      <div class="form-group">
+        <label>Tag Name:</label>
+        <input class="form-control inputtagname" placeholder="Enter Tag Name" style="width:80%">
+      </div>
+      <hr>
+      <div class="taglist">
+        <div class="form-group">
+          <label>Key Word:</label>
+          <i class="fa fa-minus-circle"></i>
+          <input class="form-control inputkeyword" placeholder="Enter Key Word" style="width:80%">
+        </div>
+        <i class="fa fa-plus-circle"></i>
+      </div>
+      <hr>
+      <div class="btn-group btn-group-sm buttontype">
+        <button type="button" class="btn btn-default" MsgType="news" action="textmessage">TEXT MESSAGE</button>
+        <button type="button" class="btn btn-default" MsgType="text" action="pushmessage">PUSH MESSAGE</button>
+      </div>
+      <div class="pushmessage">
+
+      </div>
+      <div class="textmessage">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- tag include keyword end-->
+<div id="addtagdiv">
+  <button type="button" class="btn btn-primary pull-right" id="addtagsubmit">
+     Submit
+  </button>
+  <div class="form-group">
+    <label>Tag Name:</label>
+    <input class="form-control inputtagname" placeholder="Enter Tagname" style="width:80%">
+  </div>
+  <hr>
+  <div class="taglist">
+    <div class="form-group">
+      <label>Keyword:</label>
+      <i class="fa fa-minus-circle"></i>
+      <input class="form-control inputkeyword" placeholder="Enter Keyword" style="width:80%">
+    </div>
+    <i class="fa fa-plus-circle"></i>
+  </div>
+  <hr>
+  <div class="btn-group btn-group-sm buttontype">
+    <button type="button" class="btn btn-default" MsgType="news" action="textmessage">TEXT MESSAGE</button>
+    <button type="button" class="btn btn-default" MsgType="text" action="pushmessage">PUSH MESSAGE</button>
+  </div>
+  <div class="pushmessage">
+
+  </div>
+  <div class="textmessage">
+
+  </div>
+</div>
+
+<!-- <div style="text-align:center;" id="menufun">
+  <button type="button" class="btn btn-primary addkeyword">Add Keyword</button>
+</div> -->
+<!-- table content end-->
+</div>
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+    // $('#taglisttable').dataTable();
+    keyword.ajaxtaglist();
+});
+</script>
+{% endblock %}

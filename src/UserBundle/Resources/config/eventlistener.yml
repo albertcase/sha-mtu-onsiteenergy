@@ -1,0 +1,12 @@
+services:
+        # user.listener.controller:
+        #     class: UserBundle\EventListener\listenerController
+        #     arguments: [@router, @service_container]
+        #     tags:
+        #         - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+        user.listener.request:
+            class: UserBundle\EventListener\listenerRequest
+            arguments: ['@request_stack', '@service_container']
+            tags:
+                - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

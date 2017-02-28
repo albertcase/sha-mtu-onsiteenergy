@@ -1,0 +1,23 @@
+services:
+#    article.example:
+#        class: ArticleBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+        form.articleadd:
+          class: ArticleBundle\Forms\articleadd
+          arguments: ['@request_stack', '@service_container']
+
+        form.articleedit:
+          class: ArticleBundle\Forms\articleedit
+          arguments: ['@request_stack', '@service_container']
+
+        form.articledel:
+          class: ArticleBundle\Forms\articledel
+          arguments: ['@request_stack', '@service_container']
+
+        form.articlelist:
+          class: ArticleBundle\Forms\articlelist
+          arguments: ['@request_stack', '@service_container']
+
+        form.articleinfo:
+          class: ArticleBundle\Forms\articleinfo
+          arguments: ['@request_stack', '@service_container']

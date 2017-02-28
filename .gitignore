@@ -1,0 +1,10 @@
+.DS_Store
+/.vagrant/
+.vagrant
+/app/cache/
+/app/logs/
+/web/upload/
+/web/RedisMyAdmin/
+/var/cache/
+/var/logs/
+/var/sessions/

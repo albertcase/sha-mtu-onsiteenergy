@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ 'http_error.name'|trans({ '%status_code%': 500 }) }}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/source/manage/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body style="background-color:#fff">
+
+    <div class="container">
+      <img src="/source/change/img/adplog.png" style="margin-top:20px"/>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" >
+              <h1 class="text-danger">{{ 'http_error.name'|trans({ '%status_code%': 500 }) }}</h1>
+
+              <p class="lead">
+                  {{ 'http_error_500.description'|trans }}
+              </p>
+            </div>
+        </div>
+    </div>
+<!-- popbox start-->
+
+</body>
+
+</html>

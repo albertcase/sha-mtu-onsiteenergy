@@ -1,0 +1,33 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: mtu_db
+    database_user: root
+    database_password: ''
+    locale: en
+    env(SYMFONY_SECRET): secret_value_for_symfony_demo_application
+    env(SYMFONY_LOG): '%kernel.logs_dir%/%kernel.environment%.log'
+    env(DATABASE_URL): 'sqlite:///%kernel.root_dir%/../var/data/blog.sqlite'
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+
+    # redis
+    redis_host: 127.0.0.1
+    redis_port: 6379
+    redis_prostr: mtu:
+
+    # wechat config
+    wechat_Token: same_wechat_samesamechina
+    wechat_AppID: wxdffb071f687633b8
+    wechat_AppSecret: 8395e578d5d08499df2bbd6750a2f43e
+
+    bundles:
+      - wechat_api
+      - article
+      - user
+
+    hostdomain: 127.0.0.1:8076

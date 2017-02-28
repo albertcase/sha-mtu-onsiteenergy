@@ -1,0 +1,131 @@
+{% extends '::backendbase.html.twig' %}
+{% block title %}Oauth Control{% endblock %}
+{% block navoauth %}navactive{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script type="text/javascript" src="{{ asset('bundles/wechatapi/js/oauth.min.js') }}"></script>
+    {{ parent() }}
+    <script>
+      var pagecode = {
+        hosts: "{{host}}",
+      }
+    </script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="panel panel-default mainmanage" id="oauthmanage">
+   <div class="panel-heading">
+         Oauth Control
+   </div>
+   <div class="panel-body mainmanagepanel" id="oauthmanagepanel">
+     <ul class="nav nav-tabs navselect" style="margin-top:20px" id="oauthnav">
+       <li class="active"><a href="#" active="oauthlist" class="message">Oauth List</a></li>
+       <li class=""><a href="#" active="addoauth" class="message">Add Oauth</a></li>
+    </ul>
+<div id="oauthlist"  class="navshow navhide">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Oauth List
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="oauthlisttable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Redirect_url</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+
+<div id="addoauth" class="navhide">
+  <button type="button" class="btn btn-primary pull-right" id="addoauthsubmit">
+     Submit
+  </button>
+  <div class="form-group">
+    <label>NAME:</label>
+    <input class="form-control oauthname" placeholder="Enter NAME" style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>redirect_url:</label>
+    <input class="form-control oauthredirect" placeholder="Enter Redirect_url" style="width:80%">
+  </div>
+  <!-- <div class="form-group">
+    <label>callback_url:</label>
+    <input class="form-control oauthcallback" placeholder="Enter Callback_url" style="width:80%">
+  </div>
+  <div class="form-group">
+      <label>scope:</label>
+      <select class="form-control oauthscope"  style="width:300px">
+        <option value="snsapi_userinfo">snsapi_userinfo</option>
+        <option value="snsapi_base">snsapi_base</option>
+      </select>
+  </div> -->
+</div>
+
+
+<div id="editoauth" class="navhide">
+  <div class="panel panel-default">
+     <div class="panel-heading">
+           Edit Page
+           <i class="fa fa-mail-reply pull-right"></i>
+     </div>
+     <div class="panel-body" id="editoauthpanel">
+       <button type="button" class="btn btn-primary pull-right" id="editoauthsubmit">
+          Save
+       </button>
+       <div class="form-group">
+         <label>NAME:</label>
+         <input class="form-control oauthname" placeholder="Enter NAME" style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>redirect_url:</label>
+         <input class="form-control oauthredirect" placeholder="Enter Redirect_url" style="width:80%">
+       </div>
+       <!-- <div class="form-group">
+         <label>callback_url:</label>
+         <input class="form-control oauthcallback" placeholder="Enter Callback_url" style="width:80%">
+       </div>
+       <div class="form-group">
+           <label>scope:</label>
+           <select class="form-control oauthscope"  style="width:300px">
+               <option value="snsapi_userinfo">snsapi_userinfo</option>
+               <option value="snsapi_base">snsapi_base</option>
+           </select>
+       </div> -->
+    </div>
+  </div>
+</div>
+
+
+   </div>
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+ oauthjs.ajaxloadlist();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,53 @@
+parameters:
+  # wechat config
+    user_permission:
+      user_selfcontrol: user self control
+      user_usercontrol: Administrators
+
+# session
+    session_login: username
+
+    user_pages:
+      user_page_preference:
+        goto: user_page_nopermission
+        permission: user_selfcontrol
+        login: user_page_login
+
+# papis start
+    user_papis:
+      user_api_papi_adminchangepw:
+        goto: user_out_notpassede
+        permission: user_usercontrol
+
+      user_api_papi_creatadmin:
+        goto: user_out_notpassede
+        permission: user_usercontrol
+
+      user_api_papi_changepwd:
+        goto: user_out_notpassede
+        permission: user_selfcontrol
+
+      user_api_papi_getadmins:
+        goto: user_out_notpassede
+        permission: user_usercontrol
+
+      user_api_papi_userdel:
+        goto: user_out_notpassede
+        permission: user_usercontrol
+
+      user_api_papi_getadminerinfo:
+        goto: user_out_notpassede
+        permission: user_usercontrol
+
+      user_api_papi_admincpw:
+        goto: user_out_notpassede
+        permission: user_usercontrol
+
+# permission set
+      user_api_papi_getpermission:
+        goto: user_out_notpassede
+        permission: user_usercontrol
+
+      user_api_papi_permissionset:
+        goto: user_out_notpassede
+        permission: user_usercontrol

@@ -1,0 +1,108 @@
+.m-slid{
+  width:100%;
+  float: left;
+}
+
+.m-slidbox{
+  width:100%;
+  padding-left: 30px;
+  position: relative;
+}
+
+.menu-hierarachy{
+  position: relative;
+}
+
+.m-slid>input{
+  display: none;
+}
+
+.m-slid>div{
+  float: left;
+}
+
+.barchange{
+  background-color: #fcf8e3 !important;
+}
+
+.d-scboxinput~.m-slidbar .d-scbox>.fa-chevron-down, .d-scboxinput:checked~.m-slidbar .d-scbox>.fa-chevron-right{
+  display: none !important;
+}
+
+.d-scboxinput:checked~.m-slidbar  .d-scbox>.fa-chevron-down, .d-scboxinput~.m-slidbar .d-scbox>.fa-chevron-right{
+  display: block !important;
+}
+
+.m-slid>.m-slidbar{
+  height: 40px;
+  width:100%;
+  line-height: 40px;
+  background-color: #eff4fa;
+  border: 1px solid #eee;
+}
+
+.m-slidbar>.m-sonshow:hover{
+  background-color: #eff4ee;
+}
+
+.m-slidbar>.m-sonshow .fa{
+  cursor: pointer;
+}
+.m-slidbar>.m-sonshow{
+  width: 20px;
+  padding: 0px 16px 0px 6px;
+}
+
+.m-slidbar>.m-menumove{
+  margin-left: 30px;
+}
+
+.m-push-right{
+  float: right;
+}
+
+.m-push-left{
+  float: left;
+}
+
+.m-slidbar>.m-menuinfo{
+  padding-left: 15px;
+}
+
+.m-slidbar>.m-menuinfo>.m-menuname{
+  width:300px;
+}
+
+.m-slidbar>.m-menuinfo>.m-menuevent{
+  width:150px;
+}
+
+.m-slidbar>.m-menuchange>.fa{
+  margin: 0px 10px;
+}
+
+.m-slidbar>.m-menumove{
+  padding: 0px 10px;
+  cursor: move;
+  color: #aaa;
+}
+
+.d-scboxinput~.m-slidbox{
+  display: none;
+}
+
+.d-scboxinput:checked~.m-slidbox{
+  display: block !important;
+}
+
+.menu-changeranking{
+  display: none;
+  width:100%;
+  background-color: #fcf8e3;
+  height:70px;
+  margin-bottom: 20px;
+  padding:20px;
+  line-height: 30px;
+  color:#8a6d3b;
+  vertical-align: middle;
+}

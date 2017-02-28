@@ -1,0 +1,405 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  -webkit-backface-visibility: hidden;
+}
+
+@media screen and (max-width: 413px) {
+  html {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 414px) {
+  html {
+    font-size: 50px;
+  }
+}
+body {
+  font-family: sans-serif;
+  color: #1e1e1e;
+  font-size: 0.28rem;
+  line-height: 1.5;
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.error {
+  color: red;
+  text-align: left;
+  font-size: 0.2rem;
+}
+
+.brown-font {
+  color: #887549;
+}
+
+.grey-bg {
+  background: #f2f2f2;
+}
+
+.wrapper {
+  text-align: justify;
+}
+
+.page-history .wrapper {
+  text-align: left;
+}
+
+.title {
+  font-size: 0.4rem;
+  background: #cdc7bf;
+  color: #fff;
+  text-align: center;
+  padding: 0.1rem 0;
+}
+
+.content {
+  padding: 0.28rem;
+}
+.content .item-list {
+  margin-bottom: 0.28rem;
+}
+
+.item-list .time {
+  color: #887549;
+  font-size: 0.28rem;
+}
+
+.content-collection img {
+  display: block;
+  margin-bottom: 0.1rem;
+}
+.content-collection img:last-child {
+  margin-bottom: 0;
+}
+
+.page-fragrance {
+  background: #f2f2f2;
+}
+.page-fragrance .phase-1 {
+  padding: 0.28rem;
+}
+.page-fragrance .name {
+  color: #000;
+}
+.page-fragrance .content {
+  background: url("../img/f-bg.jpg") no-repeat;
+  background-size: 100%;
+}
+
+.page-legend {
+  background: #fff;
+}
+.page-legend .title {
+  margin-top: 20px;
+}
+.page-legend .content {
+  padding: 0;
+  background-color: #f2f2f2;
+}
+.page-legend .l1 {
+  padding: 0.2rem 0.2rem 0.4rem;
+}
+
+.inspiration {
+  position: relative;
+}
+.inspiration .des {
+  position: absolute;
+  z-index: 2;
+}
+.inspiration.inspiration-1 .des {
+  color: #fff;
+  width: 92%;
+  height: auto;
+  left: 4%;
+  bottom: 4%;
+}
+.inspiration.inspiration-2 .des {
+  color: #000;
+  width: 92%;
+  height: auto;
+  left: 4%;
+  top: 1%;
+}
+
+.page-historicalmoments {
+  background: #f2f2f2;
+}
+.page-historicalmoments img {
+  display: block;
+}
+.page-historicalmoments .content {
+  padding: 0;
+}
+.page-historicalmoments .content p {
+  padding: 0.2rem;
+}
+
+.wrapper-3 .title {
+  margin-top: 20px;
+}
+
+.page-book img {
+  display: block;
+}
+.page-book .item-book .bottom-bg {
+  width: 100%;
+  height: 1rem;
+  background: url("../img/f-bg.jpg") no-repeat;
+  background-size: 100%;
+}
+.page-book .item-book .brown-font {
+  text-align: center;
+  padding: 0.3rem;
+  background: #f2f2f2;
+}
+
+.slide {
+  position: relative;
+}
+.slide .slidesjs-pagination {
+  display: none;
+}
+.slide .slidesjs-pagination .slidesjs-pagination-item a {
+  display: block;
+}
+.slide .slidesjs-navigation {
+  display: block;
+  position: absolute;
+  width: 0.3rem;
+  height: 0.3rem;
+  z-index: 100;
+  top: 50%;
+  text-indent: -999em;
+  border-left: #f2ece8 2px solid;
+  border-bottom: #f2ece8 2px solid;
+}
+.slide .slidesjs-navigation.slidesjs-previous {
+  left: 0.5rem;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.slide .slidesjs-navigation.slidesjs-next {
+  right: 0.5rem;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+body.page-store {
+  padding: 0.3rem;
+  background: #e6e6e6;
+}
+
+.avatar {
+  width: 1.52rem;
+  height: 1.52rem;
+  margin: 0.5rem auto 0.4rem;
+}
+
+.add-content {
+  width: 100%;
+  margin: 0 auto 0.3rem;
+  padding: 0.3rem 0;
+  background: #fff;
+  text-align: center;
+  font-size: 0.32rem;
+}
+.add-content hr {
+  border: none;
+  width: 30%;
+  margin: 0.3rem auto;
+  height: 1px;
+  background: #000;
+}
+
+.tips {
+  background: #cdc7bf;
+  color: #fff;
+  font-size: 0.4rem;
+  text-align: center;
+  padding: 0.15rem 0;
+}
+
+#form-reservation {
+  padding: 5%;
+}
+#form-reservation h3 {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.35rem;
+  text-align: center;
+  padding: 0.2rem 0;
+}
+#form-reservation .input-box {
+  text-align: center;
+}
+#form-reservation .input-box.input-box-contact {
+  text-align: left;
+  color: #757575;
+  font-size: 0.35rem;
+}
+#form-reservation .input-box.input-box-contact .c-tips {
+  margin: 0.2rem auto;
+  text-align: center;
+  font-size: 0.35rem;
+}
+#form-reservation select,
+#form-reservation input[type="text"],
+#form-reservation input[type="tel"],
+#form-reservation input[type="email"],
+#form-reservation input[type="date"],
+#form-reservation input[type="number"] {
+  width: 100%;
+  height: 0.8rem;
+  margin: 0.2rem auto;
+  border: none;
+  background: #fff;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 10px;
+  padding: 0;
+  font-size: 0.3rem;
+}
+#form-reservation select {
+  color: #fff;
+}
+#form-reservation .select-box {
+  position: relative;
+}
+#form-reservation .select-box.selected label {
+  display: none;
+}
+#form-reservation .select-box.selected select {
+  color: #000;
+}
+#form-reservation .select-box:after {
+  content: '';
+  display: block;
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  right: 0.2rem;
+  top: 0.45rem;
+  border-bottom: #252525 1px solid;
+  border-left: #252525 1px solid;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+#form-reservation .select-box label {
+  position: absolute;
+  left: 0.2rem;
+  top: 0.4rem;
+  color: #9e9e9e;
+  font-size: 0.3rem;
+  z-index: 2;
+  width: 60%;
+  text-align: left;
+}
+#form-reservation .btn-submit {
+  background: #cdc7bf;
+  width: 100%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  margin: 0.2rem auto 0.3rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.4rem;
+  font-weight: bold;
+}
+#form-reservation textarea {
+  width: 100%;
+  background: #fff;
+  border: none;
+  font-size: 0.3rem;
+}
+#form-reservation .input-box-date h3 {
+  font-size: 0.3rem;
+  text-align: left;
+}
+
+#__bs_notify__ {
+  display: none !important;
+}

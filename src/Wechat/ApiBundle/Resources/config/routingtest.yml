@@ -1,0 +1,11 @@
+wechat_api_test_1:
+    path:     /cardsign
+    defaults: { _controller: WechatApiBundle:Test:cardsign }
+
+wechat_api_test2:
+    path:     /cardpage
+    defaults: { _controller: WechatApiBundle:Test:cardpage }
+
+wechat_api_test3:
+    path:     /oauth
+    defaults: { _controller: WechatApiBundle:Test:oauth }

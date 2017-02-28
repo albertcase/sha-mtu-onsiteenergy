@@ -1,0 +1,73 @@
+user_page_index:
+    path:     /
+    defaults: { _controller: UserBundle:Page:index }
+
+
+user_page_login:
+    path:     /user
+    defaults: { _controller: UserBundle:Page:index }
+
+user_page_preference:
+    path:     /user/preference
+    defaults: { _controller: UserBundle:Page:preference }
+
+user_page_nopermission:
+    path:     /user/nopermission
+    defaults: { _controller: UserBundle:Page:nopermission }
+
+user_page_notfound:
+    path:     /user/notfound
+    defaults: { _controller: UserBundle:Page:notfound }
+# page end
+
+# out start
+user_out_logout:
+    path:     /user/logout
+    defaults: { _controller: UserBundle:Out:logout }
+
+user_out_login:
+    path:     /user/login
+    defaults: { _controller: UserBundle:Out:login }
+
+user_out_notpassede:
+    path:     /user/notpassede
+    defaults: { _controller: UserBundle:Out:notpassede }
+# out end
+
+# api start
+user_api_papi_adminchangepw:
+    path:     /user/adminchangepw
+    defaults: { _controller: UserBundle:Api:adminchangepw }
+
+user_api_papi_creatadmin:
+    path:     /user/creatadmin
+    defaults: { _controller: UserBundle:Api:creatadmin }
+
+user_api_papi_changepwd:
+    path:     /user/changepwd
+    defaults: { _controller: UserBundle:Api:changepwd }
+
+user_api_papi_getadmins:
+    path:     /user/getadmins
+    defaults: { _controller: UserBundle:Api:getadmins }
+
+user_api_papi_userdel:
+    path:     /user/userdel
+    defaults: { _controller: UserBundle:Api:userdel }
+
+user_api_papi_getadminerinfo:
+    path:     /user/getadminerinfo
+    defaults: { _controller: UserBundle:Api:getadminerinfo }
+
+user_api_papi_admincpw:
+    path:     /user/admincpw
+    defaults: { _controller: UserBundle:Api:admincpw }
+# api end
+# user permission
+user_api_papi_getpermission:
+    path:     /user/getpermission
+    defaults: { _controller: UserBundle:Api:getpermission }
+
+user_api_papi_permissionset:
+    path:     /user/permissionset
+    defaults: { _controller: UserBundle:Api:permissionset }

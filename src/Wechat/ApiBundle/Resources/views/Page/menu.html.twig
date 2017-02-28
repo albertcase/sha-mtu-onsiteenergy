@@ -1,0 +1,241 @@
+{% extends '::backendbase.html.twig' %}
+{% block title %}MENU{% endblock %}
+{% block navmenu %}navactive{% endblock %}
+{% block stylesheets %}
+  {{ parent() }}
+  <link href="{{ asset('bundles/wechatapi/css/wechatmenu.min.css') }}" rel="stylesheet"  />
+{% endblock %}
+
+{% block maincontent %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Menu List
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+<div class="menu-changeranking" style="display: none;">
+	<span>Do your want save the new ranking ?</span><button id="rangkingsave" class="btn btn-success" style="float:right">SAVE</button>
+</div>
+<div class="menu-hierarachy">
+
+</div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div style="text-align:center;" id="menufun">
+  <button type="button" class="btn btn-primary addmainmenu">Add Menu</button>
+  <button type="button" class="btn btn-primary addsubmenu">Add Submenu</button>
+  <button type="button" class="btn btn-success publish">Publish</button>
+</div>
+<br>
+<br>
+<!-- <button type="button" class="btn btn-primary btn-xs mytipsboxcs">From Online<span data-tipso="" style="visibility:hidden;"></span></button> -->
+
+<!-- popup -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               Add Menu
+            </h4>
+         </div>
+         <div class="modal-body">
+<!-- add main menu form -->
+<div class="form-group">
+  <label>Menu Name</label>
+  <input class="form-control menuname" placeholder="Enter Menu Name">
+</div>
+<div class="btn-group btn-group-sm buttontype">
+  <button type="button" class="btn btn-default" MsgType="" action="externalpage" >EXTERNAL PAGE</button>
+  <button type="button" class="btn btn-default" MsgType="text" action="pushmessage">PUSH MESSAGE</button>
+  <button type="button" class="btn btn-default" MsgType="news" action="textmessage">TEXT MESSAGE</button>
+  <button type="button" class="btn btn-default" MsgType="location_select" action="locationmessage">Location</button>
+  <button type="button" class="btn btn-default" MsgType="media_id" action="mediamessage">MEDIA_ID</button>
+  <button type="button" class="btn btn-default" MsgType="none" action="none">None</button>
+</div>
+<div class="externalpage">
+
+</div>
+<div class="pushmessage">
+
+</div>
+<div class="textmessage">
+
+</div>
+<div class="locationmessage">
+
+</div>
+<div class="mediamessage">
+
+</div>
+<div class="none">
+
+</div>
+<!-- add main menu form end  -->
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">Close
+            </button>
+            <button type="button" class="btn btn-primary addmmenusubmit">
+               Add Menu
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup end -->
+
+<!-- popup -->
+<div class="modal fade" id="submenu" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               Add Submenu
+            </h4>
+         </div>
+         <div class="modal-body">
+<!-- add main menu form -->
+<div class="form-group">
+    <label>Belong to</label>
+    <select class="form-control belongto">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+</div>
+<div class="form-group">
+  <label>Menu Name</label>
+  <input class="form-control menuname" placeholder="Enter Menu Name">
+</div>
+<div class="btn-group btn-group-sm buttontype">
+  <button type="button" class="btn btn-default" MsgType="" action="externalpage" >EXTERNAL PAGE</button>
+  <button type="button" class="btn btn-default" MsgType="text" action="pushmessage">PUSH MESSAGE</button>
+  <button type="button" class="btn btn-default" MsgType="news" action="textmessage">TEXT MESSAGE</button>
+  <button type="button" class="btn btn-default" MsgType="location_select" action="locationmessage">Location</button>
+  <button type="button" class="btn btn-default" MsgType="media_id" action="mediamessage">MEDIA_ID</button>
+  <button type="button" class="btn btn-default" MsgType="none" action="none">None</button>
+</div>
+<div class="externalpage">
+
+</div>
+<div class="pushmessage">
+
+</div>
+<div class="textmessage">
+
+</div>
+<div class="locationmessage">
+
+</div>
+<div class="mediamessage">
+
+</div>
+<div class="none">
+
+</div>
+<!-- add main menu form end  -->
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">Close
+            </button>
+            <button type="button" class="btn btn-primary" id="addsubmenusubmit">
+               Add Submenu
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup end -->
+<!-- popup -->
+<div class="modal fade" id="editmenu" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               Edit Menu
+            </h4>
+         </div>
+         <div class="modal-body">
+<!-- add main menu form -->
+<div class="form-group">
+  <label>Menu Name</label>
+  <input class="form-control menuname" placeholder="Enter Menu Name">
+</div>
+<div class="btn-group btn-group-sm buttontype">
+  <button type="button" class="btn btn-default" MsgType="" action="externalpage" >EXTERNAL PAGE</button>
+  <button type="button" class="btn btn-default" MsgType="text" action="pushmessage">PUSH MESSAGE</button>
+  <button type="button" class="btn btn-default" MsgType="news" action="textmessage">TEXT MESSAGE</button>
+  <button type="button" class="btn btn-default" MsgType="location_select" action="locationmessage">Location</button>
+  <button type="button" class="btn btn-default" MsgType="media_id" action="mediamessage">MEDIA_ID</button>
+  <button type="button" class="btn btn-default" MsgType="none" action="none">None</button>
+</div>
+<div class="externalpage">
+
+</div>
+<div class="pushmessage">
+
+</div>
+<div class="textmessage">
+
+</div>
+<div class="locationmessage">
+
+</div>
+<div class="mediamessage">
+
+</div>
+<div class="none">
+
+</div>
+<!-- add main menu form end  -->
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">Close
+            </button>
+            <button type="button" class="btn btn-primary" id="savechange">
+               Save
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup end -->
+
+<script>
+// $(document).ready(function() {
+//     $('#menutable').dataTable();
+// });
+$(document).ready(function() {
+  menu.ajaxreload();
+});
+</script>
+
+{% endblock %}

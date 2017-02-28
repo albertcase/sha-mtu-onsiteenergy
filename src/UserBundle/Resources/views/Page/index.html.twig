@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Wechat Admin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/source/manage/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/source/manage/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/source/manage/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/source/manage/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="container">
+      <img src="/source/change/img/adplog.png" style="margin-top:20px"/>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Username" name="email" id="adpusername" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" id="adppassword" type="password" value="">
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button class="btn btn-lg btn-success btn-block" id="adplogin" >Login</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- popbox start-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close"
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               Warning
+            </h4>
+         </div>
+         <div class="modal-body" style="color:red;font-size:120%">
+           <!-- conetnt -->
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">Close
+            </button>
+         </div>
+      </div>
+</div>
+<!-- popbox end -->
+    <!-- jQuery Version 1.11.0 -->
+    <script src="/source/manage/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/source/manage/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/source/manage/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/source/manage/js/sb-admin-2.js"></script>
+
+<!-- personal add JavaScript -->
+<script>
+var comfirmlog = {
+  tnonull:function(str){
+    var tname = new RegExp("^.{1,50}$");
+    if(tname.test(str)){
+      return true;
+    }
+    return false;
+  },
+  tadpusername: function(){
+    var val = $("#adpusername").val();
+    return this.tnonull(val);
+
+  },
+  tadppassword: function(){
+    var val = $("#adppassword").val();
+    return this.tnonull(val);
+  },
+  openpopup: function(a){
+    $('#myModal .modal-body').text(a);
+    $('#myModal').modal('show');
+  }
+}
+  $(function(){
+    $("#adplogin").click(function(event){
+      event.preventDefault();
+      if(!comfirmlog.tadpusername()){
+        comfirmlog.openpopup('Username is empty');
+        return false;
+      }
+      if(!comfirmlog.tadppassword()){
+        comfirmlog.openpopup('Password is empty');
+        return false;
+      }
+      $.ajax({
+        url: "/user/login",
+        dataType:"json",
+        type: "POST",
+        data:{
+          "adminlogin[username]": $("#adpusername").val(),
+          "adminlogin[password]": $("#adppassword").val()
+        },
+        success: function(data){
+          if(data.code == "10"){
+            location.reload();
+          }else{
+            comfirmlog.openpopup(data.msg);
+          }
+        },
+        error: function(data){
+          comfirmlog.openpopup('Unknown Error');
+        }
+      });
+    });
+  })
+</script>
+</body>
+
+</html>

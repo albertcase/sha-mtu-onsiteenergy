@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>{{ storename }}</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<script type="text/javascript" src="/source/valention/js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="/source/valention/css/wx_shop.css">
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Z5FOXZbjH3AEIukiiRTtD7Xy"></script>
+<style type="text/css">
+body {
+	text-decoration: none;
+}
+#marker {
+	position: relative;
+	top: 8px;
+	margin: 0px 10px 0px 0px;
+}
+#baidu-map {
+	margin: 0px 0px 2px 0px;
+}
+#reader {
+	margin: 0px 0px 2px 0px;
+}
+#click-tip {
+	font-size: 14px;
+	margin: 20px 0px 2px 0px;
+}
+.btn {
+	display: inline-block;
+	padding: 4px 6px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top, #fff, #e6e6e6);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff),  to(#e6e6e6) );
+	background-image: -webkit-linear-gradient(top, #fff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #fff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #fff, #e6e6e6);
+	background-repeat: repeat-x;
+	border: 1px solid #ccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-bottom-color: #b3b3b3;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+ filter: progid : DXImageTransform.Microsoft.gradient ( startColorstr =  '#ffffffff', endColorstr = '#ffe6e6e6', GradientType = 0 );
+ filter: progid : DXImageTransform.Microsoft.gradient ( enabled = false );
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px  rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px  rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px  rgba(0, 0, 0, 0.05);
+}
+#map-canvas {
+	height: 200px;
+	margin: 10px 0px 0px 0px;
+}
+#map-canvas img {
+	max-width: none !important;
+}
+#media {
+	margin: 0px;
+	padding: 0px;
+}
+#foot {
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	font-size: 14px;
+	color: #3e3e3e;
+	line-height: 1.5;
+}
+#nickname {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 90%;
+}
+ol, ul {
+	list-style-position: inside;
+}
+#activity-detail .page-content .text {
+	font-size: 14px;
+}
+.tel {
+	margin: 5px 0px 5px 0px;
+}
+.text {
+	margin: 0px 0px 5px 0px;
+}
+a:link {
+	color: #607FA6;
+	text-decoration: none;
+}
+a:visited {
+	color: #607FA6;
+	text-decoration: none;
+}
+a:hover {
+	color: #607FA6;
+	text-decoration: none;
+}
+a:active {
+	color: #607FA6;
+	text-decoration: none;
+}
+.tel a {
+	color: rgb(0, 128, 0);
+	font-size: 10.5pt;
+	font-family: 微软雅黑, sans-serif;
+}
+</style>
+<body id="activity-detail">
+	<div class="page-bizinfo">
+		<div class="header">
+			<h1 id="activity-name">{{ storename }}</h1>
+		</div>
+	</div>
+	<div class="page-content" style="margin: 0px">
+		<div class="text">
+			<p>
+{% if storelog is defined and storelog %}
+				<img src="{{ storelog }}">
+{% endif %}
+			</p>
+  			<div id="map-canvas"></div>
+  			<div id="edit">
+          <p></p>
+{% if brandtype is defined and brandtype %}
+          <p>产品类型：</p>
+          <p>{{ brandtype }}</p>
+          <p></p>
+{% endif %}
+{% if address is defined and address %}
+          <p>地址：</p>
+          <p>{{ address|nl2br }}</p>
+          <p></p>
+{% endif %}
+{% if openhours is defined and openhours %}
+          <p>营业时间：</p>
+          <p>{{ openhours|nl2br }}</p>
+          <p></p>
+{% endif %}
+{% if phone is defined and phone %}
+          <p>电话：</p>
+{% endif %}
+        </div>
+{% if phone is defined and phone %}
+				<div id="tel" class="tel">
+					<a href="tel:{{ phone }}">{{ phone }}</a>
+				</div>
+{% endif %}
+
+		<div id="foot">
+			<p></p>
+		</div>
+		<input type="hidden" id="x" value="{{ lat }}">
+		<input type="hidden" id="y" value="{{ lng }}">
+		<input type="hidden" id="mapTitle" value="">
+		<input type="hidden" id="mapContent" value="">
+	</div>
+	<!-- <script id="txt-title" type="txt/text">Valentino北京王府井in88精品店</script> -->
+	<script id="txt-sourceurl" type="txt/text"></script>
+	<script type="text/javascript">
+		function getUrlParam(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null)
+				return unescape(r[2]);
+			return null;
+		}
+		function generateBaiduMap() {
+			$("#map-canvas").after('<p><a id="baidu-map" class="btn"></a>仅限中国大陆地区</p>');
+			var _ori_x = getUrlParam('orix');
+			var _ori_y = getUrlParam('oriy');
+			var _x = $('#x').val();
+			var _y = $('#y').val();
+			$("#baidu-map").attr('href','http://api.map.baidu.com/direction?origin=latlng:'+_ori_x+','+_ori_y+'|name:起点&destination=latlng:'+_x+','+_y+'|name:终点&mode=driving&region=1&output=html&src=yourCompanyName|yourAppName').html('到这里去');
+		}
+		function generateBaiduMapForShop() {
+			$("#map-canvas").after('<p><img id="marker" src="/images/maps_marker.png"/><a id="baidu-map" class="btn"></a>仅限中国大陆地区</p>');
+			var _ori_x = getUrlParam('orix');
+			var _ori_y = getUrlParam('oriy');
+			var _x = $('#x').val();
+			var _y = $('#y').val();
+			$("#baidu-map").attr('href','http://api.map.baidu.com/marker?location='+_x+','+_y+'&title=店铺位置&content=店铺位置&output=html').html('到这里去');
+		}
+		var _ori_x = getUrlParam('orix');
+		var _ori_y = getUrlParam('oriy');
+		var _x = $('#x').val();
+		var _y = $('#y').val();
+		var mapTitle = $('#mapTitle').val();
+		var mapContent = $('#mapContent').val();
+		if(_ori_x !=null&&_ori_y!=null){
+			if (_x != '' && _y != '') {
+			console.log(_ori_x+' '+_ori_y+' '+_x+' '+_y);
+				var map = new BMap.Map("map-canvas");
+				map.centerAndZoom(new BMap.Point(_ori_y, _ori_x),14);
+				var p1 = new BMap.Point(_ori_y,_ori_x);
+				var p2 = new BMap.Point(_y,_x);
+				var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+				driving.search(p1, p2);
+				generateBaiduMap();
+			} else {
+				$('#map-canvas').remove();
+			}
+		}else{
+			var map = new BMap.Map("map-canvas");
+			map.centerAndZoom(new BMap.Point(_y, _x),14);
+			var marker1 = new BMap.Marker(new BMap.Point(_y, _x));
+			map.addOverlay(marker1);
+			var infoWindow1 = new BMap.InfoWindow(mapTitle);
+			marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});
+			generateBaiduMapForShop();
+		}
+</script>

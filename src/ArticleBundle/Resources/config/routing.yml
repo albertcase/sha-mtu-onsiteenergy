@@ -1,0 +1,44 @@
+article_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ArticleBundle:Default:index }
+
+# Page list
+article_page_page:
+    path:     /article/page
+    defaults: { _controller: ArticleBundle:Page:page }
+
+article_page_article:
+    path:     /page/{pageid}
+    defaults: { _controller: ArticleBundle:Page:article }
+# Page list end
+
+# api start
+article_api_papi_articleadd:
+    path:     /article/articleadd
+    defaults: { _controller: ArticleBundle:Api:articleadd }
+
+article_api_papi_editarticle:
+    path:     /article/editarticle
+    defaults: { _controller: ArticleBundle:Api:editarticle }
+
+article_api_papi_deletearticle:
+    path:     /article/deletearticle
+    defaults: { _controller: ArticleBundle:Api:deletearticle }
+# api end
+
+# out start
+article_out_ckeditoruploadimage:
+    path:     /article/ckeditoruploadimage
+    defaults: { _controller: ArticleBundle:Out:ckeditoruploadimage }
+
+article_out_articlelist:
+    path:     /article/articlelist
+    defaults: { _controller: ArticleBundle:Out:articlelist }
+
+article_out_getarticle:
+    path:     /article/getarticle
+    defaults: { _controller: ArticleBundle:Out:getarticle }
+# out end
+article_out_updateimage:
+    path:     /article/updateimage
+    defaults: { _controller: ArticleBundle:Out:updateimage }

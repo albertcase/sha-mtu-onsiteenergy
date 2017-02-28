@@ -1,0 +1,32 @@
+services:
+        form.admincpw:
+          class: UserBundle\Forms\admincpw
+          arguments: ['@request_stack', '@service_container']
+
+        form.adminadd:
+          class: UserBundle\Forms\adminadd
+          arguments: ['@request_stack', '@service_container']
+
+        form.changepwd:
+          class: UserBundle\Forms\changepwd
+          arguments: ['@request_stack', '@service_container']
+
+        form.admindel:
+          class: UserBundle\Forms\admindel
+          arguments: ['@request_stack', '@service_container']
+
+        form.admininfo:
+          class: UserBundle\Forms\admininfo
+          arguments: ['@request_stack', '@service_container']
+
+        form.adminlogin:
+          class: UserBundle\Forms\adminlogin
+          arguments: ['@request_stack', '@service_container']
+
+        form.permissionget:
+          class: UserBundle\Forms\permissionget
+          arguments: ['@request_stack', '@service_container']
+
+        form.permissionchange:
+          class: UserBundle\Forms\permissionchange
+          arguments: ['@request_stack', '@service_container']

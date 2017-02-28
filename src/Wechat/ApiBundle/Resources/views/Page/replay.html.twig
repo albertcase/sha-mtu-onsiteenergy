@@ -1,0 +1,68 @@
+{% extends '::backendbase.html.twig' %}
+{% block title %}REPLY{% endblock %}
+{% block navreplay %}navactive{% endblock %}
+
+{% block maincontent %}
+<div class="panel panel-default" id="autoreload">
+   <div class="panel-heading">
+         AUTO REPLAY
+   </div>
+   <div class="panel-body">
+     <ul class="nav nav-tabs" style="margin-top:20px" id="autoreplaynav">
+        <li class=""><a href="#" active="welcomemessage" class="message" getEvent="subscribe">Welcome Message</a></li>
+        <li class=""><a href="#" active="defaultmessage" class="message" getEvent="defaultback">Default Message</a></li>
+     </ul>
+<!-- welcome message -->
+     <div id="welcomemessage">
+       <div>
+         <button type="button" class="btn btn-warning btn-xs pull-right welcomedel">
+            Remove
+         </button>
+       </div>
+       <div class="btn-group btn-group-sm buttontype">
+         <button type="button" class="btn btn-default" MsgType="news" action="textmessage">TEXT MESSAGE</button>
+         <button type="button" class="btn btn-default" MsgType="text" action="pushmessage">PUSH MESSAGE</button>
+       </div>
+       <div class="pushmessage">
+
+       </div>
+       <div class="textmessage">
+
+       </div>
+       <hr>
+       <div>
+         <button type="button" class="btn btn-primary savebutton">
+            SAVE
+         </button>
+       </div>
+     </div>
+<!-- welcome message end-->
+<!-- defalut Message -->
+     <div id="defaultmessage">
+       <div>
+         <button type="button" class="btn btn-warning btn-xs pull-right defaultdel">
+            Remove
+         </button>
+       </div>
+       <div class="btn-group btn-group-sm buttontype">
+         <button type="button" class="btn btn-default" MsgType="news" action="textmessage">TEXT MESSAGE</button>
+         <button type="button" class="btn btn-default" MsgType="text" action="pushmessage">PUSH MESSAGE</button>
+       </div>
+       <div class="pushmessage">
+
+       </div>
+       <div class="textmessage">
+
+       </div>
+       <hr>
+       <div>
+         <button type="button" class="btn btn-primary savebutton">
+            SAVE
+         </button>
+       </div>
+     </div>
+
+<!-- defalut Message end -->
+   </div>
+</div>
+{% endblock %}

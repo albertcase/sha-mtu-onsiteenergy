@@ -1,0 +1,262 @@
+parameters:
+
+    wechat_temp_listener: wechattemplistener
+
+    wechat_jscode_allowapi:
+      - checkJsApi
+      - onMenuShareTimeline
+      - onMenuShareAppMessage
+      - onMenuShareQQ
+      - onMenuShareWeibo
+      - hideMenuItems
+      - showMenuItems
+      - hideAllNonBaseMenuItem
+      - showAllNonBaseMenuItem
+      - getNetworkType
+      - openLocation
+      - getLocation
+      - hideOptionMenu
+      - showOptionMenu
+      - closeWindow
+      - addCard
+      - chooseCard
+      - openCard
+
+    wechat_api_permission:
+      wechat_api_wechatmenu: change wechat menu
+      wechat_api_keyword: change wechat keyword
+      wechat_api_reply: change wechat reply
+      wechat_api_groupnews: control tag group news send
+      wechat_api_uploadimage: uploadimage
+      wechat_api_jssdk: jssdk control
+      wechat_api_qrcode: qrcode control
+      wechat_api_oauth: oauth control
+      wechat_api_stores: store control
+
+# wechat_api_pages strart
+    wechat_api_pages:
+      wechat_page_menu:
+        goto: user_page_nopermission
+        permission: wechat_api_wechatmenu
+        login: user_page_login
+
+      wechat_page_keyword:
+        goto: user_page_nopermission
+        permission: wechat_api_keyword
+        login: user_page_login
+
+      wechat_page_reply:
+        goto: user_page_nopermission
+        permission: wechat_api_reply
+        login: user_page_login
+
+      wechat_page_groupnews:
+        goto: user_page_nopermission
+        permission: wechat_api_groupnews
+        login: user_page_login
+
+      wechat_page_jssdk:
+        goto: user_page_nopermission
+        permission: wechat_api_jssdk
+        login: user_page_login
+
+      wechat_page_qrcode:
+        goto: user_page_nopermission
+        permission: wechat_api_qrcode
+        login: user_page_login
+
+      wechat_page_oauth:
+        goto: user_page_nopermission
+        permission: wechat_api_oauth
+        login: user_page_login
+
+      wechat_page_stores:
+        goto: user_page_nopermission
+        permission: wechat_api_stores
+        login: user_page_login
+
+
+
+
+# wechat_api_papis strart
+    wechat_api_papis:
+      wechat_wechatmenu_papi_getmenus:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_getmmenu:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_createmenu:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_getbuttoninfo:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_deletebutton:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_addsubbutton:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_addmbutton:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_updatebutton:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_updateevent:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_getevent:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_wechatmenu_papi_newmenuranking:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+# wechat_wechatmenu end
+
+# wechat keyword start
+      wechat_keyword_papi_keywordadd:
+        goto: user_out_notpassede
+        permission: wechat_api_keyword
+
+      wechat_keyword_papi_getkeywordlist:
+        goto: user_out_notpassede
+        permission: wechat_api_keyword
+
+      wechat_keyword_papi_keyworddel:
+        goto: user_out_notpassede
+        permission: wechat_api_keyword
+
+      wechat_keyword_papi_getkeywordinfo:
+        goto: user_out_notpassede
+        permission: wechat_api_keyword
+
+      wechat_keyword_papi_keywordupdate:
+        goto: user_out_notpassede
+        permission: wechat_api_keyword
+# wechat keyword end
+
+# wechat autoreplay start
+      wechat_autoreply_papi_autoreply:
+        goto: user_out_notpassede
+        permission: wechat_api_reply
+
+      wechat_autoreply_papi_autoreplyinfo:
+        goto: user_out_notpassede
+        permission: wechat_api_reply
+
+      wechat_autoreply_papi_autoreplydel:
+        goto: user_out_notpassede
+        permission: wechat_api_reply
+
+      wechat_autoreply_papi_uploadimage:
+        goto: user_out_notpassede
+        permission: wechat_api_uploadimage
+# wehcat groupnews api
+      wechat_groupnews_papi_batchgetmaterial:
+        goto: user_out_notpassede
+        permission: wechat_api_groupnews
+
+      wechat_groupnews_papi_getgrouptags:
+        goto: user_out_notpassede
+        permission: wechat_api_groupnews
+
+      wechat_groupnews_papi_setsendnewsevent:
+        goto: user_out_notpassede
+        permission: wechat_api_groupnews
+
+      wechat_api_papi_uploadstore:
+        goto: user_out_notpassede
+        permission: wechat_api_wechatmenu
+
+      wechat_groupnews_papi_materiallist:
+        goto: user_out_notpassede
+        permission: user_selfcontrol
+# jssdk
+      wechat_jssdk_papi_build:
+        goto: user_out_notpassede
+        permission: wechat_api_jssdk
+
+      wechat_jssdk_papi_list:
+        goto: user_out_notpassede
+        permission: wechat_api_jssdk
+
+      wechat_jssdk_papi_info:
+        goto: user_out_notpassede
+        permission: wechat_api_jssdk
+
+      wechat_jssdk_papi_update:
+        goto: user_out_notpassede
+        permission: wechat_api_jssdk
+
+# qrcode
+      wechat_qrcode_papi_add:
+        goto: user_out_notpassede
+        permission: wechat_api_qrcode
+
+      wechat_qrcode_papi_list:
+        goto: user_out_notpassede
+        permission: wechat_api_qrcode
+
+      wechat_qrcode_papi_info:
+        goto: user_out_notpassede
+        permission: wechat_api_qrcode
+
+      wechat_qrcode_papi_update:
+        goto: user_out_notpassede
+        permission: wechat_api_qrcode
+
+      wechat_qrcode_papi_delete:
+        goto: user_out_notpassede
+        permission: wechat_api_qrcode
+# oauth
+      wechat_oauth_papi_add:
+        goto: user_out_notpassede
+        permission: wechat_api_oauth
+
+      wechat_oauth_papi_list:
+        goto: user_out_notpassede
+        permission: wechat_api_oauth
+
+      wechat_oauth_papi_delete:
+        goto: user_out_notpassede
+        permission: wechat_api_oauth
+
+      wechat_oauth_papi_update:
+        goto: user_out_notpassede
+        permission: wechat_api_oauth
+
+      wechat_oauth_papi_info:
+        goto: user_out_notpassede
+        permission: wechat_api_oauth
+#stores
+      wechat_stores_papi_add:
+        goto: user_out_notpassede
+        permission: wechat_api_stores
+
+      wechat_stores_papi_list:
+        goto: user_out_notpassede
+        permission: wechat_api_stores
+
+      wechat_stores_papi_info:
+        goto: user_out_notpassede
+        permission: wechat_api_stores
+
+      wechat_stores_papi_update:
+        goto: user_out_notpassede
+        permission: wechat_api_stores
+
+      wechat_stores_papi_delete:
+        goto: user_out_notpassede
+        permission: wechat_api_stores

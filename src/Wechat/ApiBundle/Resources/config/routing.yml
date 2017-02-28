@@ -1,0 +1,299 @@
+wechat_api_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: WechatApiBundle:Default:index }
+
+wechat_api_feedback:
+    path:     /wechat/api
+    defaults: { _controller: WechatApiBundle:Default:wechat }
+
+wechat_api_api1:
+    path:     /api1
+    defaults: { _controller: WechatApiBundle:Default:api1 }
+
+wechat_api_cleartoken:
+    path:     /wechat/cleartoken
+    defaults: {  _controller: WechatApiBundle:Wechatmenu:cleartoken }
+
+wechat_api_papi_uploadstore:
+    path:     /wechatdefault/uploadstore
+    defaults: { _controller: WechatApiBundle:Default:uploadstore }
+
+wechat_api_reloadstoremap:
+    path:     /reloadstoremap
+    defaults: { _controller: WechatApiBundle:Default:reloadstoremap }
+
+wechat_api_sharetoken:
+    path:     /sharetoken
+    defaults: { _controller: WechatApiBundle:Default:sharetoken }
+# wechat_wechatmenu start
+wechat_wechatmenu_papi_getmenus:
+    path:     /wechatmenu/getmenus
+    defaults: { _controller: WechatApiBundle:Wechatmenu:getmenus }
+
+wechat_wechatmenu_papi_getmmenu:
+    path:     /wechatmenu/getmmenu
+    defaults: { _controller: WechatApiBundle:Wechatmenu:getmmenu }
+
+wechat_wechatmenu_papi_createmenu:
+    path:     /wechatmenu/createmenu
+    defaults: { _controller: WechatApiBundle:Wechatmenu:createmenu }
+
+wechat_wechatmenu_papi_getbuttoninfo:
+    path:     /wechatmenu/getbuttoninfo
+    defaults: { _controller: WechatApiBundle:Wechatmenu:getbuttoninfo }
+
+wechat_wechatmenu_papi_deletebutton:
+    path:     /wechatmenu/deletebutton
+    defaults: { _controller: WechatApiBundle:Wechatmenu:deletebutton }
+
+wechat_wechatmenu_papi_addsubbutton:
+    path:     /wechatmenu/addsubbutton
+    defaults: { _controller: WechatApiBundle:Wechatmenu:addsubbutton }
+
+wechat_wechatmenu_papi_addmbutton:
+    path:     /wechatmenu/addmbutton
+    defaults: { _controller: WechatApiBundle:Wechatmenu:addmbutton }
+
+wechat_wechatmenu_papi_updatebutton:
+    path:     /wechatmenu/updatebutton
+    defaults: { _controller: WechatApiBundle:Wechatmenu:updatebutton }
+
+wechat_wechatmenu_papi_updateevent:
+    path:     /wechatmenu/updateevent
+    defaults: { _controller: WechatApiBundle:Wechatmenu:updateevent }
+
+wechat_wechatmenu_papi_getevent:
+    path:     /wechatmenu/getevent
+    defaults: { _controller: WechatApiBundle:Wechatmenu:getevent }
+
+wechat_wechatmenu_papi_newmenuranking:
+    path:     /wechatmenu/newmenuranking
+    defaults: { _controller: WechatApiBundle:Wechatmenu:newmenuranking }
+# wechat_wechatmenu end
+
+# wechat keyword start
+wechat_keyword_papi_keywordadd:
+    path:     /wechat/keywordadd
+    defaults: { _controller: WechatApiBundle:Keyword:keywordadd }
+
+wechat_keyword_papi_getkeywordlist:
+    path:     /wechat/getkeywordlist
+    defaults: { _controller: WechatApiBundle:Keyword:getkeywordlist }
+
+wechat_keyword_papi_keyworddel:
+    path:     /wechat/keyworddel
+    defaults: { _controller: WechatApiBundle:Keyword:keyworddel }
+
+wechat_keyword_papi_getkeywordinfo:
+    path:     /wechat/getkeywordinfo
+    defaults: { _controller: WechatApiBundle:Keyword:getkeywordinfo }
+
+wechat_keyword_papi_keywordupdate:
+    path:     /wechat/keywordupdate
+    defaults: { _controller: WechatApiBundle:Keyword:keywordupdate }
+# wechat keyword end
+
+# wechat autoreplay start
+wechat_autoreply_papi_autoreply:
+    path:     /wechat/autoreply
+    defaults: { _controller: WechatApiBundle:Autoreply:autoreply }
+
+wechat_autoreply_papi_autoreplyinfo:
+    path:     /wechat/autoreplyinfo
+    defaults: { _controller: WechatApiBundle:Autoreply:autoreplyinfo }
+
+wechat_autoreply_papi_autoreplydel:
+    path:     /wechat/autoreplydel
+    defaults: { _controller: WechatApiBundle:Autoreply:autoreplydel }
+
+wechat_autoreply_papi_uploadimage:
+    path:     /wechat/uploadimage
+    defaults: { _controller: WechatApiBundle:Autoreply:uploadimage }
+# wechat autoreplay end
+# wechat groupnews
+wechat_groupnews_papi_batchgetmaterial:
+    path:     /wechat/batchgetmaterial
+    defaults: { _controller: WechatApiBundle:Groupnews:batchgetmaterial }
+
+wechat_groupnews_papi_newsget:
+    path:     /wechat/newsget
+    defaults: { _controller: WechatApiBundle:Groupnews:newsget }
+
+wechat_groupnews_papi_getgrouptags:
+    path:     /wechat/getgrouptags
+    defaults: { _controller: WechatApiBundle:Groupnews:getgrouptags }
+
+wechat_groupnews_papi_setsendnewsevent:
+    path:     /wechat/setsendnewsevent
+    defaults: { _controller: WechatApiBundle:Groupnews:setsendnewsevent }
+
+wechat_groupnews_papi_materiallist:
+    path:     /wechat/materiallist
+    defaults: { _controller: WechatApiBundle:Groupnews:materiallist }
+# wechat groupnews end
+# jssdk
+wechat_jssdk_papi_build:
+    path:     /wechat/jssdk/build
+    defaults: { _controller: WechatApiBundle:Jssdk:build }
+
+wechat_jssdk_papi_list:
+    path:     /wechat/jssdk/list
+    defaults: { _controller: WechatApiBundle:Jssdk:list }
+
+wechat_jssdk_papi_info:
+    path:     /wechat/jssdk/info
+    defaults: { _controller: WechatApiBundle:Jssdk:info }
+
+wechat_jssdk_papi_update:
+    path:     /wechat/jssdk/update
+    defaults: { _controller: WechatApiBundle:Jssdk:update }
+
+wechat_jssdk_js:
+    path:     /api/v1/js/{fid}/wechat
+    defaults: { _controller: WechatApiBundle:Jssdk:js }
+
+wechat_jssdk_papi_delete:
+    path:     /wechat/jssdk/delete
+    defaults: { _controller: WechatApiBundle:Jssdk:delete }
+
+wechat_jssdk_ownjs:
+    path:     /wechat/api/jssdk
+    defaults: { _controller: WechatApiBundle:Jssdk:ownjs }
+# jssdk end
+# qrcode start
+wechat_qrcode_papi_add:
+    path:     /wechat/qrcode/add
+    defaults: { _controller: WechatApiBundle:Qrcode:add }
+
+wechat_qrcode_papi_list:
+    path:     /wechat/qrcode/list
+    defaults: { _controller: WechatApiBundle:Qrcode:list }
+
+wechat_qrcode_papi_info:
+    path:     /wechat/qrcode/info
+    defaults: { _controller: WechatApiBundle:Qrcode:info }
+
+wechat_qrcode_papi_update:
+    path:     /wechat/qrcode/update
+    defaults: { _controller: WechatApiBundle:Qrcode:update }
+
+wechat_qrcode_papi_delete:
+    path:     /wechat/qrcode/delete
+    defaults: { _controller: WechatApiBundle:Qrcode:delete }
+# qrcode end
+# oauth start
+wechat_oauth_api_oauth2:
+    path:     /wechat/oauth/oauth2
+    defaults: { _controller: WechatApiBundle:Oauth:oauth2 }
+
+wechat_oauth_api_vendor:
+    path:     /v1/wx/web/oauth2/authorize
+    defaults: { _controller: WechatApiBundle:Oauth:vendor }
+
+wechat_oauth_papi_add:
+    path:     /wechat/oauth/add
+    defaults: { _controller: WechatApiBundle:Oauth:add }
+
+wechat_oauth_papi_list:
+    path:     /wechat/oauth/list
+    defaults: { _controller: WechatApiBundle:Oauth:list }
+
+wechat_oauth_papi_delete:
+    path:     /wechat/oauth/delete
+    defaults: { _controller: WechatApiBundle:Oauth:delete }
+
+wechat_oauth_papi_update:
+    path:     /wechat/oauth/update
+    defaults: { _controller: WechatApiBundle:Oauth:update }
+
+wechat_oauth_papi_info:
+    path:     /wechat/oauth/info
+    defaults: { _controller: WechatApiBundle:Oauth:info }
+# oauth end
+# wechat user status
+wechat_user_api_status:
+    path:     /wechat/user/status
+    defaults: { _controller: WechatApiBundle:WechatUsers:userstatus }
+# wechat user status end
+# stores
+wechat_stores_papi_add:
+    path:     /wechat/stores/add
+    defaults: { _controller: WechatApiBundle:Stores:add }
+
+wechat_stores_papi_list:
+    path:     /wechat/stores/list
+    defaults: { _controller: WechatApiBundle:Stores:list }
+
+wechat_stores_papi_info:
+    path:     /wechat/stores/info
+    defaults: { _controller: WechatApiBundle:Stores:info }
+
+wechat_stores_papi_update:
+    path:     /wechat/stores/update
+    defaults: { _controller: WechatApiBundle:Stores:update }
+
+wechat_stores_papi_delete:
+    path:     /wechat/stores/delete
+    defaults: { _controller: WechatApiBundle:Stores:delete }
+# stores end
+# wechat page list start
+wechat_page_groupnews:
+    path:     /wechat/groupnews
+    defaults: { _controller: WechatApiBundle:Page:groupnews }
+
+wechat_page_menu:
+    path:     /wechat/menu
+    defaults: { _controller: WechatApiBundle:Page:menu }
+
+wechat_page_keyword:
+    path:     /wechat/keyword
+    defaults: { _controller: WechatApiBundle:Page:keyword }
+
+wechat_page_reply:
+    path:     /wechat/reply
+    defaults: { _controller: WechatApiBundle:Page:reply }
+
+wechat_page_jssdk:
+    path:     /wechat/jssdk
+    defaults: { _controller: WechatApiBundle:Page:jssdk }
+
+wechat_page_qrcode:
+    path:     /wechat/qrcode
+    defaults: { _controller: WechatApiBundle:Page:qrcode }
+
+wechat_page_oauth:
+    path:     /wechat/oauth
+    defaults: { _controller: WechatApiBundle:Page:oauth }
+
+wechat_page_stores:
+    path:     /wechat/stores
+    defaults: { _controller: WechatApiBundle:Page:stores }
+
+wechat_npage_store:
+    path:     /wechat/store/{id}
+    defaults: { _controller: WechatApiBundle:Page:store }
+# wechat page list end
+wechat_npage_jssdk:
+    path:     /wechat/json/jssdk
+    defaults: { _controller: WechatApiBundle:Default:jssdk }
+
+wechat_npage_test:
+    path:     /wechat/jssdk/test
+    defaults: { _controller: WechatApiBundle:Page:test }
+
+wechat_npage_test2:
+    path:     /wechat/test2
+    defaults: { _controller: WechatApiBundle:Page:test2 }
+
+wechat_npage_buildphpcache:
+    path:     /wechat/buildphpcache
+    defaults: { _controller: WechatApiBundle:Page:buildphpcache }
+
+# wechat card
+wechat_card_api_cardjsadd:
+    path:     /v1/wx/card/{cid}/js/add
+    defaults: { _controller: WechatApiBundle:Card:cardsjsadd }
+
+wechat_card_api_cardjschoose:
+    path:     /v1/wx/card/{cid}/js/choose
+    defaults: { _controller: WechatApiBundle:Card:cardsjschoose }

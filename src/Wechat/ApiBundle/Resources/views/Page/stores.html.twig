@@ -1,0 +1,157 @@
+{% extends '::backendbase.html.twig' %}
+{% block title %}Store Control{% endblock %}
+{% block navstores %}navactive{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link href="{{ asset('bundles/wechatapi/css/storescss.min.css') }}" rel="stylesheet"  />
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script type="text/javascript" src="{{ asset('bundles/wechatapi/js/storesjs.min.js') }}"></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="panel panel-default mainmanage" id="storesmanage">
+   <div class="panel-heading">
+         Store Control
+   </div>
+   <div class="panel-body mainmanagepanel" id="storesmanagepanel">
+     <ul class="nav nav-tabs navselect" style="margin-top:20px" id="storesnav">
+       <li class="active"><a href="#" active="storeslist" class="message">Store List</a></li>
+       <li class=""><a href="#" active="addstores" class="message">Add Store</a></li>
+    </ul>
+<div id="storeslist"  class="navshow navhide">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Store List
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="storeslisttable">
+                            <thead>
+                                <tr>
+                                    <th>Store Name</th>
+                                    <th>Call NO.</th>
+                                    <th>Brand Type</th>
+                                    <th>Store Log</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+
+<div id="addstores" class="navhide">
+  <button type="button" class="btn btn-primary pull-right" id="addstoressubmit">
+     Submit
+  </button>
+  <div class="form-group">
+    <label>Store Name:</label>
+    <input class="form-control storename" placeholder="Enter Store Name" style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>Address:</label>
+    <input class="form-control storeaddress" placeholder="Enter Address" style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>Call NO.:</label>
+    <input class="form-control storephone" placeholder="Enter Call NO." style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>Lat:</label>
+    <input class="form-control storelat" placeholder="Enter Lat" style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>Lng:</label>
+    <input class="form-control storelng" placeholder="Enter Lng" style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>Opening Hours:</label>
+    <input class="form-control storeopenhours" placeholder="Enter Opening Hours" style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>Brand Type:</label>
+    <input class="form-control storebrandtype" placeholder="Enter Brand Type" style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>Store Log:</label>
+    <input type="file" name="uploadfile" class="newsfile">
+  </div>
+</div>
+
+
+<div id="editstores" class="navhide">
+  <div class="panel panel-default">
+     <div class="panel-heading">
+           Edit Store
+           <i class="fa fa-mail-reply pull-right"></i>
+     </div>
+     <div class="panel-body" id="editstorespanel">
+       <button type="button" class="btn btn-primary pull-right" id="editstoresubmit">
+          Save
+       </button>
+       <div class="form-group">
+         <label>Store Name:</label>
+         <input class="form-control storename" placeholder="Enter Store Name" style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>Address:</label>
+         <input class="form-control storeaddress" placeholder="Enter Address" style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>Call NO.:</label>
+         <input class="form-control storephone" placeholder="Enter Call NO." style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>Lat:</label>
+         <input class="form-control storelat" placeholder="Enter Lat" style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>Lng:</label>
+         <input class="form-control storelng" placeholder="Enter Lng" style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>Opening Hours:</label>
+         <input class="form-control storeopenhours" placeholder="Enter Opening Hours" style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>Brand Type:</label>
+         <input class="form-control storebrandtype" placeholder="Enter Brand Type" style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>Store Log:</label>
+         <input type="file" name="uploadfile" class="newsfile">
+       </div>
+    </div>
+  </div>
+</div>
+
+   </div>
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+ stores.ajaxloadlist();
+});
+</script>
+{% endblock %}

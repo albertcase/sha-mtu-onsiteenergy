@@ -1,0 +1,145 @@
+{% extends '::backendbase.html.twig' %}
+{% block title %}PAGE{% endblock %}
+{% block navpag %}navactive{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  <script src="/source/ckeditor/ckeditor.js"></script>
+  <!-- <script src="/source/ckeditor/config.js"></script> -->
+{% endblock %}
+
+{% block maincontent %}
+<script>
+  var pagecode = {
+    hosts: "{{host}}",
+  }
+</script>
+<div class="panel panel-default" id="pagmanage">
+   <div class="panel-heading">
+         PAGE
+   </div>
+   <div class="panel-body">
+     <ul class="nav nav-tabs" style="margin-top:20px" id="pagmanagenav">
+       <li class="active"><a href="#" active="pagelist" class="message">Page List</a></li>
+       <li class=""><a href="#" active="addpage" class="message">Add Page</a></li>
+    </ul>
+<!-- pagelist -->
+   <div id="pagelist" class="navshow">
+     <div class="row">
+         <div class="col-lg-12">
+             <div class="panel panel-default">
+                 <div class="panel-heading">
+                     PAGE
+                 </div>
+                 <!-- /.panel-heading -->
+                 <div class="panel-body">
+                     <div class="table-responsive">
+                         <table class="table table-striped table-bordered table-hover" id="pagelisttable">
+                             <thead>
+                                 <tr>
+                                     <th>Page Name</th>
+                                     <th>Page Title</th>
+                                     <th>Page Link</th>
+                                     <th>Editor</th>
+                                     <th>Last Modified</th>
+                                     <th>Edit</th>
+                                     <th>Delete</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+
+                             </tbody>
+                         </table>
+                     </div>
+                     <!-- /.table-responsive -->
+                 </div>
+                 <!-- /.panel-body -->
+             </div>
+             <!-- /.panel -->
+         </div>
+         <!-- /.col-lg-12 -->
+     </div>
+   </div>
+<!-- pagelist end-->
+<!-- edit page -->
+<div id="editpage">
+  <div class="panel panel-default">
+     <div class="panel-heading">
+           Edit Page
+           <i class="fa fa-mail-reply pull-right"></i>
+     </div>
+     <div class="panel-body" id="editpagepanel">
+       <button type="button" class="btn btn-primary pull-right" id="editpagesubmit">
+          Save
+       </button>
+       <div class="form-group">
+         <label>PAGE NAME:</label>
+         <input class="form-control pagename" placeholder="Enter PAGE NAME" style="width:80%">
+       </div>
+       <div class="form-group">
+         <label>PAGE TITLE:</label>
+         <input class="form-control pagetitle" placeholder="Enter PAGE TITLE" style="width:80%">
+       </div>
+       <textarea name="editor2" id="editor2"></textarea>
+    </div>
+  </div>
+</div>
+<!-- edit page end-->
+<!-- addpage -->
+<div id="addpage">
+  <button type="button" class="btn btn-primary pull-right" id="articlesubmit">
+     Submit
+  </button>
+  <div class="form-group">
+    <label>PAGE NAME:</label>
+    <input class="form-control pagename" placeholder="Enter PAGE NAME" style="width:80%">
+  </div>
+  <div class="form-group">
+    <label>PAGE TITLE:</label>
+    <input class="form-control pagetitle" placeholder="Enter PAGE TITLE" style="width:80%">
+  </div>
+  <textarea name="editor1" id="editor1"></textarea>
+</div>
+<!-- addpage end-->
+</div>
+</div>
+
+<!-- popup -->
+
+<!-- popup end -->
+  <script>
+    window.onload = function() {
+        var config = {
+          language : 'en',
+          filebrowserImageUploadUrl: '/article/ckeditoruploadimage',
+          image_previewText: 'your image',
+          height: '500',
+          extraPlugins:'dropmenuckedit,hrline,myPreview',
+          pasteFromWordRemoveStyles: true,
+          allowedContent: true,
+          toolbar:[
+['Source','-','NewPage','Preview'],
+['Undo','Redo'],
+['Bold','Italic','Underline','Strike','Subscript','Superscript','-','Remove Format'],
+['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','BidiLtr','BidiRtl'],
+['Link','Unlink'],
+['Image','Table','HorizontalRule','Iframe'],
+'/',
+['Styles','Format','Font','FontSize'],
+['TextColor','BGColor'],
+// ['dropmenuckedit','hrline','myPreview']
+          ]
+        };
+        CKEDITOR.replace( 'editor1', config);
+        CKEDITOR.replace( 'editor2', config);
+    };
+    $(document).ready(function() {
+        // tables = $('#pagelisttable').dataTable();
+        webpage.ajaxpagelist();
+    });
+</script>
+{% endblock %}

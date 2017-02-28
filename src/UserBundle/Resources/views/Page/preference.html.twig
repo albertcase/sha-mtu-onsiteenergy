@@ -1,0 +1,219 @@
+{% extends '::backendbase.html.twig' %}
+{% block title %}Preference{% endblock %}
+
+{% block maincontent %}
+<div class="panel panel-default" id="preference">
+   <div class="panel-heading">
+         Preference
+   </div>
+   <div class="panel-body">
+     <ul class="nav nav-tabs" style="margin-top:20px" id="preferencenav">
+       <li class=""><a href="#" active="changepwd" class="message">Change Password</a></li>
+{% if "user_usercontrol" in userinfo.permission or userinfo.username == "admin" %}
+       <li class=""><a href="#" active="usermanage" class="message">User Management</a></li>
+{% endif %}
+     </ul>
+     <!-- changepwd -->
+    <div id="changepwd">
+      <br>
+      <div class="form-group">
+          <label>Old Password</label>
+          <input class="form-control oldpassword" type="password" placeholder="Enter Old Password" style="width:50%">
+      </div>
+      <div class="form-group">
+          <label>New Password</label>
+          <input class="form-control newpassword" type="password" placeholder="Enter New Password" style="width:50%">
+      </div>
+      <div class="form-group">
+          <label>Repeat New Password</label>
+          <input class="form-control newpassword2" type="password" placeholder="Repeat New Password" style="width:50%">
+      </div>
+      <hr>
+      <div>
+        <button type="button" class="btn btn-primary save">
+           SAVE
+        </button>
+      </div>
+    </div>
+     <!-- changepwd end-->
+     <!-- usermanage -->
+{% if "user_usercontrol" in userinfo.permission %}
+    <div id="usermanage">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      Admin List
+                  </div>
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                      <div class="table-responsive">
+                          <table class="table table-striped table-bordered table-hover" id="usertables">
+                              <thead>
+                                  <tr>
+                                      <th>User Name</th>
+                                      <th>Last Login Date</th>
+                                      <th>Permission</th>
+                                      <th>Edit</th>
+                                      <th>Delete</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+{% for x in list %}
+                                  <tr class="odd gradeX" userid="{{ x.id|e }}">
+                                      <td>{{ x.username|e }}</td>
+                                      <td>{{ x.latestTime|e }}</td>
+                                      <td class="center"><i class="fa fa-exclamation-circle fa-lg"></i></td>
+                                      <td class="center"><i class="fa fa-edit fa-lg"></i></td>
+                                      <td class="center"><i class="fa fa-trash-o fa-lg"></i></td>
+                                  </tr>
+{% endfor %}
+                              </tbody>
+                          </table>
+                      </div>
+                      <!-- /.table-responsive -->
+                  </div>
+                  <!-- /.panel-body -->
+              </div>
+              <!-- /.panel -->
+          </div>
+          <!-- /.col-lg-12 -->
+      </div>
+      <div style="text-align:center;" id="menufun">
+        <button type="button" class="btn btn-primary adduser">Add User</button>
+      </div>
+    </div>
+{% endif %}
+     <!-- usermanage end-->
+  </div>
+</div>
+
+<!-- popup -->
+<div class="modal fade" id="adduserbox" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">
+            </button>
+            <h4 class="modal-title" id="addusertitle">
+               Add User
+            </h4>
+         </div>
+         <div class="modal-body">
+           <div class="form-group">
+               <label>User Name</label>
+               <input class="form-control username" placeholder="Enter User Name" style="width:70%">
+           </div>
+           <div class="form-group">
+               <label>Password</label>
+               <input class="form-control newpassword" type="password" placeholder="Enter New Password" style="width:70%">
+           </div>
+           <div class="form-group">
+               <label>Repeat Password</label>
+               <input class="form-control newpassword2" type="password" placeholder="Enter Repeat Password" style="width:70%">
+           </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">Close
+            </button>
+            <button type="button" class="btn btn-primary addusersubmit">
+               Add User
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- popup end -->
+<!-- popup -->
+<div class="modal fade" id="edituserbox" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">
+            </button>
+            <h4 class="modal-title" id="editusertitle">
+               Change User Password
+            </h4>
+         </div>
+         <div class="modal-body">
+           <div class="form-group">
+               <strong>User Name: </strong><span class="adminname" style="color:blue"></span>
+           </div>
+           <hr>
+           <div class="form-group">
+               <label>Password</label>
+               <input class="form-control newpassword" type="password" placeholder="Enter New Password" style="width:70%">
+           </div>
+           <div class="form-group">
+               <label>Repeat Password</label>
+               <input class="form-control newpassword2" type="password" placeholder="Enter Repeat Password" style="width:70%">
+           </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">Close
+            </button>
+            <button type="button" class="btn btn-primary changepwdsubmit">
+               Change
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- popup end -->
+
+<!-- popup -->
+<div class="modal fade" id="edituserpermission" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">
+            </button>
+            <h4 class="modal-title" id="edituserpermissiontitle">
+               Change User Permission
+            </h4>
+         </div>
+         <div class="modal-body">
+
+           <table class="table table-striped table-bordered table-hover" id="permissiontables">
+               <thead>
+                   <tr>
+                       <th>PERMISSION</th>
+                       <th style="color:green">OPTION</th>
+                   </tr>
+               </thead>
+               <tbody>
+
+               </tbody>
+           </table>
+
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">Close
+            </button>
+            <button type="button" class="btn btn-primary changepresubmit">
+               Save
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- popup end -->
+
+<script>
+$(document).ready(function() {
+    $('#usertables').dataTable();
+});
+</script>
+{% endblock %}
