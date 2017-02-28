@@ -3,7 +3,7 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: mtu_db
+    database_name: mtu_onsite
     database_user: root
     database_password: ''
     locale: en
@@ -18,7 +18,7 @@ parameters:
     # redis
     redis_host: 127.0.0.1
     redis_port: 6379
-    redis_prostr: mtu:
+    redis_prostr: mtu_onsite:
 
     # wechat config
     wechat_Token: same_wechat_samesamechina
